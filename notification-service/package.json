@@ -1,0 +1,28 @@
+{
+    "name": "notification-service",
+    "version": "1.0.0",
+    "main": "src/server.ts",
+    "scripts": {
+        "dev": "NODE_ENV=development nodemon src/server.ts",
+        "build": "rm -rf build/ && tsc -p .",
+        "start": "NODE_ENV=production nodemon build/server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@types/amqplib": "^0.10.7",
+        "@types/express": "^5.0.1",
+        "@types/nodemailer": "^6.4.17",
+        "amqplib": "^0.10.8",
+        "dotenv": "^16.5.0",
+        "express": "^5.1.0",
+        "firebase-admin": "^13.4.0",
+        "nodemailer": "^7.0.3",
+        "nodemon": "^3.1.10",
+        "sib-api-v3-typescript": "^2.2.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3"
+    }
+}
