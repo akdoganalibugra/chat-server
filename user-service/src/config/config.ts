@@ -1,4 +1,4 @@
-import { config } from "dotenv";
+import { config } from 'dotenv';
 
 const configFile = `./.env`;
 config({ path: configFile });

@@ -1,10 +1,10 @@
-import express, { Express } from "express";
-import { Server } from "http";
-import userRouter from "./routes/authRoutes";
-import { errorConverter, errorHandler } from "./middleware";
-import { connectDB } from "./database";
-import config from "./config/config";
-import { rabbitMQService } from "./services/RabbitMQService";
+import express, { Express } from 'express';
+import { Server } from 'http';
+import userRouter from './routes/authRoutes';
+import { errorConverter, errorHandler } from './middleware';
+import { connectDB } from './database';
+import config from './config/config';
+import { rabbitMQService } from './services/RabbitMQService';
 
 const app: Express = express();
 let server: Server;
@@ -23,9 +23,9 @@ server = app.listen(config.PORT, () => {
 const initializeRabbitMQClient = async () => {
     try {
         await rabbitMQService.init();
-        console.log("RabbitMQ client initialized and listening for messages.");
+        console.log('RabbitMQ client initialized and listening for messages.');
     } catch (err) {
-        console.error("Failed to initialize RabbitMQ client:", err);
+        console.error('Failed to initialize RabbitMQ client:', err);
     }
 };
 
@@ -34,7 +34,7 @@ initializeRabbitMQClient();
 const exitHandler = () => {
     if (server) {
         server.close(() => {
-            console.info("Server closed");
+            console.info('Server closed');
             process.exit(1);
         });
     } else {
@@ -47,5 +47,5 @@ const unexpectedErrorHandler = (error: unknown) => {
     exitHandler();
 };
 
-process.on("uncaughtException", unexpectedErrorHandler);
-process.on("unhandledRejection", unexpectedErrorHandler);
+process.on('uncaughtException', unexpectedErrorHandler);
+process.on('unhandledRejection', unexpectedErrorHandler);
